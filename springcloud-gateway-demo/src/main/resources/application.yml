@@ -1,0 +1,15 @@
+server:
+  port: 8888
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: hello_route
+        uri: http://localhost:8088/hello
+        predicates:
+        - Path=/hello
+logging:
+  level:
+    com.example: DEBUG
+    org: INFO
