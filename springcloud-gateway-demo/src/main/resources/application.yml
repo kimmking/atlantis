@@ -6,10 +6,10 @@ spring:
     gateway:
       routes:
       - id: hello_route
-        uri: http://localhost:8088/hello
+        uri: http://localhost:8088/api/hello
         predicates:
-        - Path=/hello
+        - Path=/api/hello
 logging:
   level:
-    com.example: DEBUG
+    io.github.kimmking: DEBUG
     org: INFO
