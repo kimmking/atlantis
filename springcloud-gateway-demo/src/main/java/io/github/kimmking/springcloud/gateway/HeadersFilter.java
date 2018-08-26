@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 import java.util.HashMap;
 
 
-@Component
+//@Component
 public class HeadersFilter implements GlobalFilter, Ordered {
 
     static Logger logger = LoggerFactory.getLogger(HeadersFilter.class);

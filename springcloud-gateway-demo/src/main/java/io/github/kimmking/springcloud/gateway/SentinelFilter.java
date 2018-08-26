@@ -18,7 +18,7 @@ import reactor.core.publisher.Mono;
 import java.net.URI;
 
 
-@Component
+//@Component
 public class SentinelFilter implements GlobalFilter, Ordered {
 
     static Logger logger = LoggerFactory.getLogger(SentinelFilter.class);
