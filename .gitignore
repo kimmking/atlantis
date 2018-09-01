@@ -29,3 +29,5 @@ target/
 classes/
 out/
 
+node_modules/
+

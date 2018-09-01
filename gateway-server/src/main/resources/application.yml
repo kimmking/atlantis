@@ -1,2 +1,6 @@
 server:
   port: 8088
+logging:
+  level:
+    io.github.kimmking: ERROR
+    org: ERROR
