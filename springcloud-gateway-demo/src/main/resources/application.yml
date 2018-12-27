@@ -1,15 +1,17 @@
 server:
-  port: 8888
+  port: ${proxyPort}
 
+
+## http://localhost:8088/api/hello
 spring:
   cloud:
     gateway:
       routes:
       - id: hello_route
-        uri: http://localhost:8088/api/hello
+        uri: ${backendService}
         predicates:
-        - Path=/api/hello
+        - Path=${proxyContext}
 logging:
   level:
-    io.github.kimmking: DEBUG
-    org: INFO
+    io.github.kimmking: ERROR
+    org: ERROR
