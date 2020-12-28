@@ -23,12 +23,17 @@ public class HeadersFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
 
-        logger.info("HeadersFilter");
+        if (logger.isInfoEnabled()) {
+            logger.info("HeadersFilter==>" + exchange.getRequest().getURI().toString());
+        }
 
         //HttpHeaders headers = exchange.getRequest().getHeaders();
 
         ServerHttpRequest request = exchange.getRequest().mutate().header("exchange", "kimmking.github.io").build();
-        logger.info("Add header exchange->" + request.getHeaders().getFirst("exchange")+" success");
+
+        if (logger.isInfoEnabled()) {
+            logger.info("Add header exchange->" + request.getHeaders().getFirst("exchange")+" success");
+        }
         return chain.filter(exchange.mutate().request(request).build());
 
         //return chain.filter(exchange);

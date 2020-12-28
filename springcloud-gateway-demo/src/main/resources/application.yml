@@ -1,8 +1,8 @@
 server:
   port: ${proxyPort}
 
+## -DproxyPort=8080 -DproxyContext=/api/hello -DbackendService=http://localhost:8088/api/hello
 
-## http://localhost:8088/api/hello
 spring:
   cloud:
     gateway:
@@ -11,6 +11,7 @@ spring:
         uri: ${backendService}
         predicates:
         - Path=${proxyContext}
+
 logging:
   level:
     io.github.kimmking: ERROR
