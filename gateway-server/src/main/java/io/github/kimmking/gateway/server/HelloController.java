@@ -1,9 +1,9 @@
 package io.github.kimmking.gateway.server;
 
-import org.springframework.http.HttpRequest;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 
 @RestController
@@ -20,7 +20,12 @@ public class HelloController {
     @GetMapping("/api/dm")
     public Long dm(){
         reporter.init();
-        return reporter.getDirectMemory().get();
+        AtomicLong directMemory = reporter.getDirectMemory();
+        if(directMemory == null) {
+            System.out.println("directMemory is NULL.");
+            return -1L;
+        }
+        return directMemory.get();
     }
 
 
